@@ -22,11 +22,11 @@
 #define DEVICE_VER      0x0100
 
 /* key matrix pins */
-#define MATRIX_ROW_PINS { A7, A6, A5, C13, C14, C15}
+#define MATRIX_ROW_PINS { A7, A6, A5, A0, A1, A2}
 #define MATRIX_COL_PINS { B14, B13, B12, B11, B10, B1, B0, B9, B8, B7, B6, B5, B4, B3, A15}
 
 /* RGB Matrix Configuration */
-#define RGB_DI_PIN D0
+#define RGB_DI_PIN A4
 #ifdef RGB_DI_PIN
 
 #define DRIVER_LED_TOTAL 97
@@ -35,7 +35,7 @@
 #define RGBLIGHT_HUE_STEP 8
 #define RGBLIGHT_SAT_STEP 8
 #define RGBLIGHT_VAL_STEP 8
-#define RGBLIGHT_LIMIT_VAL 255 /* The maximum brightness level */
+#define RGBLIGHT_LIMIT_VAL 170  /* The maximum brightness level */
 #define RGBLIGHT_SLEEP  /* If defined, the RGB lighting will be switched off when the host goes to sleep */
 // /*== all animations enable ==*/
 #define RGBLIGHT_ANIMATIONS
