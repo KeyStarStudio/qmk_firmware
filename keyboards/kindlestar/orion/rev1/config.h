@@ -22,8 +22,9 @@
 #define DEVICE_VER      0x0100
 
 /* key matrix pins */
-#define MATRIX_ROW_PINS { A7, A6, A5, A0, A1, A2}
-#define MATRIX_COL_PINS { B14, B13, B12, B11, B10, B1, B0, B9, B8, B7, B6, B5, B4, B3, A15}
+#define MATRIX_ROW_PINS {A0, A1, A2, A3, A4, A5}
+#define MATRIX_COL_PINS { B8, B7, B6, B5, B4, B3, A8, B15, B14, B13, B12, B1, B0, A7, A6}
+
 
 /* RGB Matrix Configuration */
 #define RGB_DI_PIN A4
