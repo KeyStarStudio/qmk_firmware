@@ -792,11 +792,11 @@ static void keyboard_idle_timer_cb(void *arg) {
 }
 
 /* LED status */
-uint8_t keyboard_leds(void) { return keyboard_led_state; }
+__attribute__((weak)) uint8_t keyboard_leds(void) { return keyboard_led_state; }
 
 /* prepare and start sending a report IN
  * not callable from ISR or locked state */
-void send_keyboard(report_keyboard_t *report) {
+__attribute__((weak)) void send_keyboard(report_keyboard_t *report) {
     osalSysLock();
     if (usbGetDriverStateI(&USB_DRIVER) != USB_ACTIVE) {
         goto unlock;
@@ -870,7 +870,7 @@ void mouse_in_cb(USBDriver *usbp, usbep_t ep) {
 }
 #    endif
 
-void send_mouse(report_mouse_t *report) {
+__attribute__((weak)) void send_mouse(report_mouse_t *report) {
     osalSysLock();
     if (usbGetDriverStateI(&USB_DRIVER) != USB_ACTIVE) {
         osalSysUnlock();
@@ -892,7 +892,7 @@ void send_mouse(report_mouse_t *report) {
 }
 
 #else  /* MOUSE_ENABLE */
-void send_mouse(report_mouse_t *report) { (void)report; }
+__attribute__((weak)) void send_mouse(report_mouse_t *report) { (void)report; }
 #endif /* MOUSE_ENABLE */
 
 /* ---------------------------------------------------------
@@ -914,7 +914,7 @@ void shared_in_cb(USBDriver *usbp, usbep_t ep) {
  */
 
 #ifdef EXTRAKEY_ENABLE
-static void send_extra(uint8_t report_id, uint16_t data) {
+void send_extra(uint8_t report_id, uint16_t data) {
     osalSysLock();
     if (usbGetDriverStateI(&USB_DRIVER) != USB_ACTIVE) {
         osalSysUnlock();
@@ -940,19 +940,19 @@ static void send_extra(uint8_t report_id, uint16_t data) {
 }
 #endif
 
-void send_system(uint16_t data) {
+__attribute__((weak)) void send_system(uint16_t data) {
 #ifdef EXTRAKEY_ENABLE
     send_extra(REPORT_ID_SYSTEM, data);
 #endif
 }
 
-void send_consumer(uint16_t data) {
+__attribute__((weak)) void send_consumer(uint16_t data) {
 #ifdef EXTRAKEY_ENABLE
     send_extra(REPORT_ID_CONSUMER, data);
 #endif
 }
 
-void send_digitizer(report_digitizer_t *report) {
+__attribute__((weak)) void send_digitizer(report_digitizer_t *report) {
 #ifdef DIGITIZER_ENABLE
 #    ifdef DIGITIZER_SHARED_EP
     osalSysLock();

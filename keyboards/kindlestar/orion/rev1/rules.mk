@@ -20,3 +20,15 @@ RGBLIGHT_ENABLE = no         # Enable keyboard RGB underglow
 RGB_MATRIX_ENABLE = yes
 RGB_MATRIX_DRIVER = WS2812
 AUDIO_ENABLE = no           # Audio output
+
+# debug info
+#CONSOLE_ENABLE = yes
+
+#CHIBIOS_DIR = ../../../tmk_core/protocol/chibios
+#CHIBIOS_DIR = /Users/zzc/Documents/keyboard/referals/qmk_firmware/tmk_core/protocol/chibios
+#old_usb_main = $(CHIBIOS_DIR)/usb_main.c
+#EXCLUDE = $(CHIBIOS_DIR)
+SRC += main.c
+SRC += orion_output_auto_select.c
+SRC += orion_usb_sender.c
+
