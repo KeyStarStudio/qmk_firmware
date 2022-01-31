@@ -19,7 +19,7 @@
 
 /* USB Device descriptor parameter */
 #define VENDOR_ID       0x3468
-#define MANUFACTURER    KEYSTAR
+#define MANUFACTURER    KINDLESTAR
 #define PRODUCT         ORION87
 
 /* key matrix size */

@@ -1,8 +1,8 @@
 {
-    "name":"orion",
+    "name":"ORION87",
     "vendorId": "0x3468",
     "productId": "0x0100",
-    "lighting": "qmk_rgblight",
+    "lighting": "none",
     "matrix": {"rows": 6, "cols": 15},
     "layouts": {
         "keymap": [
@@ -108,5 +108,6 @@
           ]
 
       }
+
 
 }
